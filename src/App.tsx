@@ -20,9 +20,9 @@ function App() {
   const [workspaces, setWorkspaces] = useState<Workspace[]>([])
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([])
   const [newKeyName, setNewKeyName] = useState('')
-  const [authToken, setAuthToken] = useState('ZTVlYTkzYzMtZGVmMi00OGJlLThjYzItOThiNDE5MmM2YWZj')
+  const [authToken, setAuthToken] = useState(import.meta.env.VITE_API_KEY || '')
   const [error, setError] = useState<string | null>(null)
-  const apiBaseUrl = 'http://localhost:3000'
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
 
   // Handle API key input
   const handleAuthKeySubmit = async (key: string) => {
@@ -35,9 +35,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${key}`
-        },
-        mode: 'cors',
-        credentials: 'omit'
+        }
       })
       if (!response.ok) {
         throw new Error('Invalid API key')
@@ -58,9 +56,7 @@ function App() {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${authToken}`
-          },
-          mode: 'cors',
-          credentials: 'omit'
+          }
         })
         if (!response.ok) {
           throw new Error(`Failed to fetch workspaces: ${response.statusText}`)
@@ -86,9 +82,7 @@ function App() {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${authToken}`
-          },
-          mode: 'cors',
-          credentials: 'omit'
+          }
         })
         if (!response.ok) {
           throw new Error(`Failed to fetch API keys: ${response.statusText}`)
@@ -114,9 +108,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${authToken}`
-        },
-        mode: 'cors',
-        credentials: 'omit'
+        }
       })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -136,9 +128,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${authToken}`
-        },
-        mode: 'cors',
-        credentials: 'omit'
+        }
       })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
