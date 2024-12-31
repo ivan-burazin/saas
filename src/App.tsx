@@ -20,9 +20,14 @@ function App() {
   const [workspaces, setWorkspaces] = useState<Workspace[]>([])
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([])
   const [newKeyName, setNewKeyName] = useState('')
-  const [authToken, setAuthToken] = useState(import.meta.env.VITE_API_KEY || '')
+  const [authToken, setAuthToken] = useState('')
   const [error, setError] = useState<string | null>(null)
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+  const apiBaseUrl = 'https://api-a0534c9b-df6d-40f5-8657-792993bc24ec.try-eu.daytona.app'
+  
+  // Set initial auth token
+  useEffect(() => {
+    setAuthToken('ZTVlYTkzYzMtZGVmMi00OGJlLThjYzItOThiNDE5MmM2YWZj')
+  }, [])
 
   // Handle API key input
   const handleAuthKeySubmit = async (key: string) => {
@@ -145,14 +150,12 @@ function App() {
   const deleteApiKey = async (name: string) => {
     if (!authToken) return
     try {
-      const response = await fetch(`${apiBaseUrl}/apikey/${name}`, {
+      const response = await fetch(`${apiBaseUrl}/apikey/${name}/`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${authToken}`
-        },
-        mode: 'cors',
-        credentials: 'omit'
+        }
       })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
