@@ -9,7 +9,7 @@ const apiProxy = createProxyMiddleware({
   target: 'https://api-a0534c9b-df6d-40f5-8657-792993bc24ec.try-eu.daytona.app',
   changeOrigin: true,
   pathRewrite: {
-    '^/api': ''
+    '^/api': '/'
   },
   onProxyRes: function(proxyRes, req, res) {
     proxyRes.headers['Access-Control-Allow-Origin'] = '*';
