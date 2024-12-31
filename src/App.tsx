@@ -38,10 +38,8 @@ function App() {
     try {
       const response = await fetch(`${apiBaseUrl}/workspace/`, {
         method: 'GET',
-        mode: 'no-cors',
-        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
           'Authorization': `Bearer ${key}`
         }
       })
@@ -62,10 +60,8 @@ function App() {
       try {
         const response = await fetch(`${apiBaseUrl}/workspace/`, {
           method: 'GET',
-          mode: 'no-cors',
-          credentials: 'include',
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
             'Authorization': `Bearer ${authToken}`
           }
         })
@@ -91,10 +87,8 @@ function App() {
       try {
         const response = await fetch(`${apiBaseUrl}/apikey/`, {
           method: 'GET',
-          mode: 'no-cors',
-          credentials: 'include',
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
             'Authorization': `Bearer ${authToken}`
           }
         })
@@ -119,10 +113,8 @@ function App() {
     try {
       const response = await fetch(`${apiBaseUrl}/workspace/${id}/`, {
         method: 'DELETE',
-        mode: 'no-cors',
-        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
           'Authorization': `Bearer ${authToken}`
         }
       })
@@ -141,10 +133,8 @@ function App() {
     try {
       const response = await fetch(`${apiBaseUrl}/apikey/${newKeyName}/`, {
         method: 'POST',
-        mode: 'no-cors',
-        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
           'Authorization': `Bearer ${authToken}`
         }
       })
@@ -165,10 +155,8 @@ function App() {
     try {
       const response = await fetch(`${apiBaseUrl}/apikey/${name}/`, {
         method: 'DELETE',
-        mode: 'no-cors',
-        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
           'Authorization': `Bearer ${authToken}`
         }
       })
