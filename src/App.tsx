@@ -52,7 +52,7 @@ function App() {
     const fetchWorkspaces = async () => {
       if (!authToken) return
       try {
-        const response = await fetch(`${apiBaseUrl}/workspace`, {
+        const response = await fetch(`${apiBaseUrl}/workspace/`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${authToken}`
@@ -78,7 +78,7 @@ function App() {
     const fetchApiKeys = async () => {
       if (!authToken) return
       try {
-        const response = await fetch(`${apiBaseUrl}/apikey`, {
+        const response = await fetch(`${apiBaseUrl}/apikey/`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${authToken}`
@@ -103,7 +103,7 @@ function App() {
   const deleteWorkspace = async (id: string) => {
     if (!authToken) return
     try {
-      const response = await fetch(`${apiBaseUrl}/workspace/${id}`, {
+      const response = await fetch(`${apiBaseUrl}/workspace/${id}/`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function App() {
   const generateApiKey = async () => {
     if (!newKeyName || !authToken) return
     try {
-      const response = await fetch(`${apiBaseUrl}/apikey/${newKeyName}`, {
+      const response = await fetch(`${apiBaseUrl}/apikey/${newKeyName}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
