@@ -22,7 +22,7 @@ function App() {
   const [newKeyName, setNewKeyName] = useState('')
   const [authToken, setAuthToken] = useState('')
   const [error, setError] = useState<string | null>(null)
-  const apiBaseUrl = 'http://localhost:3000/api'
+  const apiBaseUrl = 'https://api-a0534c9b-df6d-40f5-8657-792993bc24ec.try-eu.daytona.app'
   
   // Set initial auth token
   useEffect(() => {
